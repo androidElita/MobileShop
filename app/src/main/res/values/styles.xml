@@ -1,0 +1,166 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash_screen</item>
+    </style>
+
+    <!-- Стиль шрифта -->
+    <style name="TextRegular">
+        <item name="android:fontFamily">@font/font_regular</item>
+    </style>
+
+    <style name="TextMedium">
+        <item name="android:fontFamily">@font/font_medium</item>
+    </style>
+
+    <style name="TextBoldMedium" parent="TextMedium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextInfoRegular" parent="TextRegular">
+        <item name="android:textColor">@color/info</item>
+    </style>
+
+    <style name="TextAccentRegular" parent="TextRegular">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+
+    <!-- Заголовки -->
+    <style name="H1" parent="TextBoldMedium">
+        <item name="android:textSize">32sp</item>
+        <item name="android:lineSpacingMultiplier">42</item>
+    </style>
+
+    <style name="H2" parent="TextMedium">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">32</item>
+    </style>
+
+    <style name="H3" parent="TextMedium">
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingMultiplier">28</item>
+    </style>
+
+    <style name="H4" parent="TextMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">24</item>
+        <item name="android:letterSpacing">0.035</item> <!-- 0.56px / 16sp -->
+    </style>
+
+    <!-- Текст -->
+    <style name="Text24Regular" parent="TextRegular">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">32</item>
+    </style>
+
+    <style name="Text16Medium" parent="TextMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">24</item>
+        <item name="android:letterSpacing">0.005</item> <!-- 0.08px / 16sp -->
+    </style>
+
+    <style name="Text14Medium" parent="TextMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">22</item>
+        <item name="android:letterSpacing">0.00571</item> <!-- 0.08px / 14sp -->
+    </style>
+
+    <style name="Text14Regular" parent="TextRegular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">22</item>
+        <item name="android:letterSpacing">0.00571</item> <!-- 0.08px / 14sp -->
+    </style>
+
+    <style name="Text12Medium" parent="TextMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">20</item>
+        <item name="android:letterSpacing">0.002667</item> <!-- 0.32px / 12sp -->
+    </style>
+
+    <style name="Text12Regular" parent="TextRegular">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">20</item>
+        <item name="android:letterSpacing">0.002667</item> <!-- 0.32px / 12sp -->
+    </style>
+
+    <!-- Кнопки -->
+    <style name="Button16Medium" parent="TextMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">20</item>
+        <item name="android:letterSpacing">0.045</item> <!-- 0.72px / 16sp -->
+    </style>
+
+    <style name="Button14Medium" parent="TextMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">18</item>
+        <item name="android:letterSpacing">0.05143</item> <!-- 0.72px / 14sp -->
+    </style>
+
+    <style name="Button14Regular" parent="TextRegular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">18</item>
+        <item name="android:letterSpacing">0.05143</item> <!-- 0.72px / 14sp -->
+    </style>
+
+    <style name="Button12Medium" parent="TextMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">16</item>
+        <item name="android:letterSpacing">0.04667</item> <!-- 0.56px / 12sp -->
+    </style>
+
+    <style name="Button12Regular" parent="TextRegular">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">16</item>
+        <item name="android:letterSpacing">0.04667</item> <!-- 0.56px / 12sp -->
+    </style>
+
+    <!-- Ссылки -->
+    <style name="Linking14Regular" parent="TextInfoRegular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">18</item>
+        <item name="android:letterSpacing">0.05143</item> <!-- 0.72px / 14sp -->
+    </style>
+
+    <style name="Linking12Regular" parent="TextInfoRegular">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">16</item>
+        <item name="android:letterSpacing">0.04667</item> <!-- 0.56px / 12sp -->
+    </style>
+
+    <!-- Цены -->
+    <style name="Price24Medium" parent="TextMedium">
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">32</item>
+        <item name="android:letterSpacing">0.03</item> <!-- 0.72px / 24sp -->
+    </style>
+
+    <style name="Price16Medium" parent="TextMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">24</item>
+        <item name="android:letterSpacing">0.02</item> <!-- 0.32px / 16sp -->
+    </style>
+
+    <style name="Price16Bold" parent="TextBoldMedium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">24</item>
+        <item name="android:letterSpacing">0.02</item> <!-- 0.32px / 16sp -->
+    </style>
+
+    <style name="Price12Regular" parent="TextAccentRegular">
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">16</item>
+        <item name="android:letterSpacing">0.01333</item> <!-- 0.16px / 12sp -->
+    </style>
+
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="scanner_square">300</integer>
+    <integer name="line_width">5</integer>
+    <integer name="line_speed">8</integer>
+</resources>

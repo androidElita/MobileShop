@@ -1,0 +1,2 @@
+include ':app', ':barcode_reader'
+rootProject.name='Shop Mobile'

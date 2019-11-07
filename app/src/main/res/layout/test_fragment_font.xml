@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/H1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:text="H1 32 Bold"
+        android:textIsSelectable="false" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/H2"
+        android:text="H2 24 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/H3"
+        android:text="H3 20 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/H4"
+        android:text="H4 16 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Text24Regular"
+        android:text="Text 24 Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Text16Medium"
+        android:text="Text 16 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Text14Medium"
+        android:text="Text 14 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Text14Regular"
+        android:text="Text 14 Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Text12Medium"
+        android:text="Text 12 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Text12Regular"
+        android:text="Text 12 Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button16Medium"
+        android:text="Button 16 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button14Medium"
+        android:text="Button 14 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button14Regular"
+        android:text="Button14Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button12Medium"
+        android:text="Button 12 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button12Regular"
+        android:text="Button 12 Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Linking14Regular"
+        android:text="Linking 14 Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Linking12Regular"
+        android:text="Linking 12 Regular"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Price24Medium"
+        android:text="Price 24 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Price16Medium"
+        android:text="Price 16 Medium"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Price16Bold"
+        android:text="Price 16 Bold"
+        android:paddingStart="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Price12Regular"
+        android:text="@string/price12regular"
+        android:paddingStart="10dp" />
+</LinearLayout>

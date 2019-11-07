@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Shop Mobile</string>
+    <string name="home">Дом</string>
+    <string name="catalog">Каталог</string>
+    <string name="desires">Желания</string>
+    <string name="cart">Корзина</string>
+    <string name="menu">Меню</string>
+    <string name="qcode">Сканировать</string>
+    <string name="price12regular"><strike>Price 12 Regular</strike></string>
+</resources>
