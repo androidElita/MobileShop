@@ -2,12 +2,12 @@
 ============================================
 
 ### Основные характеристики приложения:
-Минимальная версия SDK: 21 (5.0)
-Язык разработки: [Kotlin 1.3.50](https://kotlinlang.org/)
-Сборка проекта: [Gradle 5.4.1](https://gradle.org/)
-Среда разработки: [Android Studio 3.5](https://developer.android.com/studio)
-Архитектура: MVP+R
-Разрешения: Интернет, Камера
+* Минимальная версия SDK: 21 (5.0)
+* Язык разработки: [Kotlin 1.3.50](https://kotlinlang.org/)
+* Сборка проекта: [Gradle 5.4.1](https://gradle.org/)
+* Среда разработки: [Android Studio 3.5](https://developer.android.com/studio)
+* Архитектура: MVP+R
+* Разрешения: Интернет, Камера
 
 ### Используемые библиотеки:
 * [Retrofit2](https://github.com/square/retrofit) - для сетевых запросов
