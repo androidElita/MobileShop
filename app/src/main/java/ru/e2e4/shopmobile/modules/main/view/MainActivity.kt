@@ -2,10 +2,10 @@ package ru.e2e4.shopmobile.modules.main.view
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -93,8 +93,11 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
         if (requestCode == BARCODE_READER_ACTIVITY_REQUEST && data != null) {
             val barcode =
                 data.getParcelableExtra<Barcode>(BarcodeReaderActivity.KEY_CAPTURED_BARCODE)!!
-            Toast.makeText(this, barcode.rawValue, Toast.LENGTH_SHORT)
-                .show()
+            val address = Uri.parse(barcode.rawValue)
+            val openLinkIntent = Intent(Intent.ACTION_VIEW, address)
+            if (openLinkIntent.resolveActivity(packageManager) != null) {
+                startActivity(openLinkIntent)
+            }
         }
     }
 
