@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/submenu"
+    app:startDestination="@id/submenu_fragment">
+    <fragment
+        android:id="@+id/submenu_fragment"
+        android:name="ru.e2e4.shopmobile.modules.submenu.SubmenuFragment"
+        android:label="submenu_fragment"
+        tools:layout="@layout/submenu_fragment" >
+        <action
+            android:id="@+id/action_navigation_submenu_to_fontFragment"
+            app:destination="@id/font_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/font_fragment"
+        android:name="ru.e2e4.shopmobile.modules.test.FontFragment"
+        android:label="FontFragment"
+        tools:layout="@layout/test_fragment_font" >
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="http://e2e4.ru/{id}" />
+    </fragment>
+</navigation>

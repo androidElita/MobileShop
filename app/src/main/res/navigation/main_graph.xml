@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TODO Deprecated -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/home_fragment">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/home_fragment"
         android:name="ru.e2e4.shopmobile.modules.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
     </fragment>
     <fragment
-        android:id="@+id/navigation_catalog"
+        android:id="@+id/catalog_fragment"
         android:name="ru.e2e4.shopmobile.modules.catalog.CatalogFragment"
         android:label="catalog_fragment"
         tools:layout="@layout/catalog_fragment" >
     </fragment>
     <fragment
-        android:id="@+id/navigation_cart"
+        android:id="@+id/cart_fragment"
         android:name="ru.e2e4.shopmobile.modules.cart.CartFragment"
         android:label="cart_fragment"
         tools:layout="@layout/cart_fragment" />
     <fragment
-        android:id="@+id/navigation_desires"
+        android:id="@+id/desires_fragment"
         android:name="ru.e2e4.shopmobile.modules.desires.DesiresFragment"
         android:label="desires_fragment"
         tools:layout="@layout/desires_fragment" />
-    <fragment
+    <navigation
         android:id="@+id/navigation_submenu"
-        android:name="ru.e2e4.shopmobile.modules.submenu.SubmenuFragment"
-        android:label="submenu_fragment"
-        tools:layout="@layout/submenu_fragment" />
+        app:startDestination="@id/submenu_fragment" >
+        <fragment
+            android:id="@+id/submenu_fragment"
+            android:name="ru.e2e4.shopmobile.modules.submenu.SubmenuFragment"
+            android:label="submenu_fragment"
+            tools:layout="@layout/submenu_fragment" >
+            <action
+                android:id="@+id/action_navigation_submenu_to_fontFragment"
+                app:destination="@id/font_fragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/font_fragment"
+            android:name="ru.e2e4.shopmobile.modules.test.FontFragment"
+            android:label="FontFragment"
+            tools:layout="@layout/test_fragment_font" >
+            <deepLink
+                android:id="@+id/deepLink"
+                app:uri="http://e2e4.ru/{id}" />
+        </fragment>
+    </navigation>
 </navigation>

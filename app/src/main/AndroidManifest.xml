@@ -23,7 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".modules.main.view.MainActivity" />
+        <activity android:name=".modules.main.view.MainActivity" >
+            <nav-graph android:value="@navigation/submenu" />
+        </activity>
     </application>
 
 </manifest>
