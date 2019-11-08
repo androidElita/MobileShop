@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.google.android.gms.vision.barcode.Barcode
 import kotlinx.android.synthetic.main.common_toolbar.vToolbar
 import kotlinx.android.synthetic.main.main_activity.*
@@ -19,7 +21,8 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(vToolbar)
-
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        NavigationUI.setupWithNavController(vBottomNavigation, navController)
         vBottomNavigation.setOnNavigationItemReselectedListener {}
     }
 

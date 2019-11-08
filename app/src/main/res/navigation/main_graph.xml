@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="ru.e2e4.shopmobile.modules.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_catalog"
+        android:name="ru.e2e4.shopmobile.modules.catalog.CatalogFragment"
+        android:label="catalog_fragment"
+        tools:layout="@layout/catalog_fragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="ru.e2e4.shopmobile.modules.cart.CartFragment"
+        android:label="cart_fragment"
+        tools:layout="@layout/cart_fragment" />
+    <fragment
+        android:id="@+id/navigation_desires"
+        android:name="ru.e2e4.shopmobile.modules.desires.DesiresFragment"
+        android:label="desires_fragment"
+        tools:layout="@layout/desires_fragment" />
+    <fragment
+        android:id="@+id/navigation_submenu"
+        android:name="ru.e2e4.shopmobile.modules.submenu.SubmenuFragment"
+        android:label="submenu_fragment"
+        tools:layout="@layout/submenu_fragment" />
+</navigation>

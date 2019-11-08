@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.modules.cart
+package ru.e2e4.shopmobile.modules.desires
 
 
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.e2e4.shopmobile.R
 
-class CartFragment : Fragment() {
+class DesiresFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.cart_fragment, container, false)
+        return inflater.inflate(R.layout.desires_fragment, container, false)
     }
 }

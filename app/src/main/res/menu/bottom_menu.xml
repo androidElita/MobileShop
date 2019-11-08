@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
         android:orderInCategory="1"
         android:title="@string/home" />
 
     <item
-        android:id="@+id/catalog"
+        android:id="@+id/navigation_catalog"
         android:icon="@drawable/ic_document_search"
         android:orderInCategory="2"
         android:title="@string/catalog" />
@@ -20,13 +20,13 @@
         android:title="@string/desires" />
 
     <item
-        android:id="@+id/cart"
+        android:id="@+id/navigation_cart"
         android:icon="@drawable/ic_shopping_cart"
         android:orderInCategory="4"
         android:title="@string/cart" />
 
     <item
-        android:id="@+id/navigation_menu"
+        android:id="@+id/navigation_submenu"
         android:icon="@drawable/ic_menu"
         android:orderInCategory="5"
         android:title="@string/menu" />
