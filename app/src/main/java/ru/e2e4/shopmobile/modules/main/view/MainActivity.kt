@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.vision.barcode.Barcode
-import kotlinx.android.synthetic.main.common_toolbar.*
 import kotlinx.android.synthetic.main.common_toolbar.vToolbar
 import kotlinx.android.synthetic.main.main_activity.*
 import ru.e2e4.barcode_reader.BarcodeReaderActivity

@@ -54,6 +54,7 @@ dependencies {
     // dagger
     implementation 'com.google.dagger:dagger:2.24'
     implementation 'com.google.dagger:dagger-producers:2.24'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt 'com.google.dagger:dagger-compiler:2.24'
     // room
     implementation "androidx.room:room-runtime:2.2.1"
