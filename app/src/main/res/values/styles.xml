@@ -14,6 +14,12 @@
         <item name="android:windowBackground">@drawable/background_splash_screen</item>
     </style>
 
+    <style name="SearchView" parent="Widget.AppCompat.Light.SearchView">
+        <item name="closeIcon">@drawable/ic_close</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+        <item name="android:theme">@style/Text16Regular</item>
+    </style>
+
     <!-- Стиль шрифта -->
     <style name="TextRegular">
         <item name="android:fontFamily">@font/font_regular</item>
@@ -62,6 +68,12 @@
     <style name="Text24Regular" parent="TextRegular">
         <item name="android:textSize">24sp</item>
         <item name="android:lineSpacingMultiplier">32</item>
+    </style>
+
+    <style name="Text16Regular" parent="TextRegular">
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">24</item>
+        <item name="android:letterSpacing">0.005</item> <!-- 0.08px / 16sp -->
     </style>
 
     <style name="Text16Medium" parent="TextMedium">

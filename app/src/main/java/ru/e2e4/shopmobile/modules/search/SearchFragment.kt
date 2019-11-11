@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.modules.test
+package ru.e2e4.shopmobile.modules.search
 
 
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.e2e4.shopmobile.R
 
-class FontFragment : Fragment() {
+class SearchFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.test_fragment_font, container, false)
+        return inflater.inflate(R.layout.search_fragment, container, false)
     }
 }
