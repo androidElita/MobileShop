@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modules.catalog.CatalogFragment">
+    tools:context=".modules.category.view.CategoryFragment">
 
     <include
         android:id="@+id/vToolbar"

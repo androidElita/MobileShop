@@ -27,7 +27,7 @@ class NetworkService {
         .client(httpClient)
         .build()
 
-    fun <T> create(serviceClass: Class<T>) = retrofit.create(serviceClass)
+    fun <T> create(serviceClass: Class<T>): T = retrofit.create(serviceClass)
 
     companion object {
         const val READ_TIMEOUT_SEC = 30L

@@ -1,11 +1,16 @@
 package ru.e2e4.shopmobile
 
 import android.app.Application
+import ru.e2e4.shopmobile.di.ComponentContract
 import ru.e2e4.shopmobile.di.components.AppComponent
+import ru.e2e4.shopmobile.di.components.CategoryComponent
 import ru.e2e4.shopmobile.di.components.DaggerAppComponent
+import ru.e2e4.shopmobile.di.components.MainComponent
+import javax.inject.Singleton
 
-class App : Application() {
+class App : Application(), ComponentContract {
 
+    @Singleton
     private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
@@ -13,5 +18,13 @@ class App : Application() {
         appComponent = DaggerAppComponent.builder()
             .bindContext(this)
             .build()
+    }
+
+    override fun getMainComponent(): MainComponent {
+        return appComponent.getMainComponent()
+    }
+
+    override fun getCategoryComponent(): CategoryComponent {
+       return getMainComponent().getCategoryComponent()
     }
 }
