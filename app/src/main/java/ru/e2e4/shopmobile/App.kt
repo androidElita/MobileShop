@@ -2,10 +2,7 @@ package ru.e2e4.shopmobile
 
 import android.app.Application
 import ru.e2e4.shopmobile.di.ComponentContract
-import ru.e2e4.shopmobile.di.components.AppComponent
-import ru.e2e4.shopmobile.di.components.CategoryComponent
-import ru.e2e4.shopmobile.di.components.DaggerAppComponent
-import ru.e2e4.shopmobile.di.components.MainComponent
+import ru.e2e4.shopmobile.di.components.*
 import javax.inject.Singleton
 
 class App : Application(), ComponentContract {
@@ -26,5 +23,9 @@ class App : Application(), ComponentContract {
 
     override fun getCategoryComponent(): CategoryComponent {
        return getMainComponent().getCategoryComponent()
+    }
+
+    override  fun getSearchComponent(): SearchComponent {
+        return getMainComponent().getSearchComponent()
     }
 }

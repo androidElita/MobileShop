@@ -51,6 +51,10 @@
         <item name="android:textColor">@color/info</item>
     </style>
 
+    <style name="TextInfoMedium" parent="TextMedium">
+        <item name="android:textColor">@color/info</item>
+    </style>
+
     <style name="TextAccentRegular" parent="TextRegular">
         <item name="android:textColor">@color/colorAccent</item>
     </style>
@@ -151,6 +155,12 @@
     </style>
 
     <!-- Ссылки -->
+    <style name="Linking14Medium" parent="TextInfoMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingMultiplier">18</item>
+        <item name="android:letterSpacing">0.05143</item> <!-- 0.72px / 14sp -->
+    </style>
+
     <style name="Linking14Regular" parent="TextInfoRegular">
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingMultiplier">18</item>

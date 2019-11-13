@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">E2E4</string>
-    <string name="home">Дом</string>
+    <string name="price12regular"><strike>Price 12 Regular</strike></string>
+    <string name="deeplink">http://e2e4.ru/{id}</string>
+    <string name="nameDB">localDB</string>
+
+    <string name="home">Домой</string>
     <string name="catalog">Каталог</string>
     <string name="desires">Желания</string>
     <string name="cart">Корзина</string>
     <string name="menu">Меню</string>
     <string name="qcode">Сканировать</string>
     <string name="search">Поиск</string>
-    <string name="deeplink">http://e2e4.ru/{id}</string>
-    <string name="price12regular"><strike>Price 12 Regular</strike></string>
+    <string name="searchHistory">История запросов</string>
+    <string name="searchClean">Очистить историю</string>
+    <string name="searchCleanComplete">История очищена</string>
+    <string name="searchHistoryEmpty">История отсутствует</string>
 </resources>

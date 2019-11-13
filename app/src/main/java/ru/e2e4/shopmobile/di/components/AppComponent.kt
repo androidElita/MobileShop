@@ -16,7 +16,6 @@ interface AppComponent {
     interface Builder {
         @BindsInstance
         fun bindContext(applicationContext: Context): Builder
-
         fun build(): AppComponent
     }
 }

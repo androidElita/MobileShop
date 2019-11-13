@@ -38,9 +38,9 @@ class HomeFragment : Fragment() {
             val launchIntent = BarcodeReaderActivity.getLaunchIntent(activity, true, false)
             startActivityForResult(launchIntent, BARCODE_READER_ACTIVITY_REQUEST)
         }
-//        vSearchLayout.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
-//        }
+        vSearchLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
         if (Intent.ACTION_SEARCH == (activity as AppCompatActivity).intent.action) {
             (activity as AppCompatActivity).intent.getStringExtra(SearchManager.QUERY)?.also { query ->
                 Toast.makeText(activity, query, Toast.LENGTH_LONG)

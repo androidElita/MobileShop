@@ -9,5 +9,4 @@ class CategoryNode(
     @SerializedName("fullName") val fullName: List<String>,
     @SerializedName("id") val id: Int?,
     @SerializedName("count") val count: Int
-
 )

@@ -13,7 +13,7 @@ class CategoryPresenterImpl @Inject constructor(
 )  : CategoryPresenter, RxAbstractPresenter<CategoryView>() {
     override fun attachView(view: CategoryView) {
         super.attachView(view)
-        loadCategory()
+       // loadCategory()
     }
 
     private fun loadCategory() {
