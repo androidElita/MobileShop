@@ -12,15 +12,33 @@ class SearchPresenterImpl @Inject constructor(
     val model: SearchModel
 ) : SearchPresenter, RxAbstractPresenter<SearchView>() {
 
+    override fun search(inputText: String) {
+        val data = inputText.toLowerCase() //TODO С точки зрения локализации это плохо (https://developer.android.com/reference/java/util/Locale.html#default_locale)
+            .trim()
+        if (data.isEmpty()) return
+        getView().cleanInputSearch()
+        model.addSearchHistory(data)
+        loadSearchHistory()
+    }
+
+    override fun inputtingText(inputText: String) {
+        if (inputText.isEmpty()){
+            getView().hideCleanSearch()
+        } else {
+            getView().showCleanSearch()
+        }
+    }
+
     override fun loadSearchHistory() {
         addDisposable(
             model.getSearchHistory()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({list ->
-                    if(list.isEmpty()) {
+                    if (list.isEmpty()) {
                         emptyHistory()
                     } else {
+                        getView().hideEmptyHistoryMessage()
                         getView().showSearchHistory(list)
                     }
                 }, {
@@ -29,16 +47,17 @@ class SearchPresenterImpl @Inject constructor(
         )
     }
 
-    private fun emptyHistory() {
-        getView().showEmptyHistoryMessage()
-       // getView().showSearchHistory(listOf())
+    override fun cleanInputSearch() {
+        getView().cleanInputSearch()
     }
 
-    override fun addSearchHistory(text: String) {
-        model.addSearchHistory(text)
+    private fun emptyHistory() {
+        getView().hideSearchHistory()
+        getView().showEmptyHistoryMessage()
     }
 
     override fun cleanHistory() {
         model.cleanHistory()
+        loadSearchHistory()
     }
 }

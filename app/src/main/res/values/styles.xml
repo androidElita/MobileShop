@@ -87,10 +87,8 @@
         <item name="android:lineSpacingMultiplier">32</item>
     </style>
 
-    <style name="Text16Regular" parent="TextRegular">
-        <item name="android:textSize">16sp</item>
+    <style name="Text16Regular" parent="InputText16Regular">
         <item name="android:lineSpacingMultiplier">24</item>
-        <item name="android:letterSpacing">0.005</item> <!-- 0.08px / 16sp -->
     </style>
 
     <style name="Text16Medium" parent="TextMedium">
@@ -121,6 +119,12 @@
         <item name="android:textSize">12sp</item>
         <item name="android:lineSpacingMultiplier">20</item>
         <item name="android:letterSpacing">0.002667</item> <!-- 0.32px / 12sp -->
+    </style>
+
+    <!-- Поля ввода -->
+    <style name="InputText16Regular" parent="TextRegular">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.005</item> <!-- 0.08px / 16sp -->
     </style>
 
     <!-- Кнопки -->

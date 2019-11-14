@@ -14,24 +14,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <ru.e2e4.shopmobile.components.customView.SearchInputText
             android:id="@+id/vSearchEditText"
+            style="@style/InputText16Regular"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
-            android:fontFamily="@font/font_regular"
             android:background="@color/colorPrimary"
             android:hint="@string/search"
+            android:importantForAutofill="no"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:importantForAutofill="no">
+            app:layout_constraintTop_toTopOf="parent">
 
             <requestFocus />
-        </EditText>
+        </ru.e2e4.shopmobile.components.customView.SearchInputText>
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/vCleanTextButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
