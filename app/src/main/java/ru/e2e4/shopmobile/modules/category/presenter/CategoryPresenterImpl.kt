@@ -11,14 +11,14 @@ import javax.inject.Inject
 class CategoryPresenterImpl @Inject constructor(
     private val model: CategoryModel
 )  : CategoryPresenter, RxAbstractPresenter<CategoryView>() {
+
     override fun attachView(view: CategoryView) {
         super.attachView(view)
-        loadCategory()
     }
 
-    private fun loadCategory() {
+    override fun loadCategoryTree() {
         addDisposable(
-            model.getCategoryTree()
+            model.loadCategoryTree()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({

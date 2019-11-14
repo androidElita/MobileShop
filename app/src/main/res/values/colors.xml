@@ -21,4 +21,5 @@
     <color name="focusPrimary">#FCE8EB</color>
     <color name="icon">#D1D1D1</color>
     <color name="iconDark">#333333</color>
+    <color name="darkLight">#F0F0F0</color>
 </resources>

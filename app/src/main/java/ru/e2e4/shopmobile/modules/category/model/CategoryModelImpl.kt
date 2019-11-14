@@ -10,7 +10,7 @@ class CategoryModelImpl @Inject constructor(
     private val service: CategoryRestService
 ) : CategoryModel {
 
-    override fun getCategoryTree(): Single<CategoryNode> {
+    override fun loadCategoryTree(): Single<CategoryNode> {
         return service.getCategoryTree(1)
     }
 }
