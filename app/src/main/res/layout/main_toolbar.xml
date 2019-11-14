@@ -16,7 +16,29 @@
         android:layout_height="40sp"
         android:background="@drawable/search_corners">
 
-        <androidx.appcompat.widget.SearchView
+        <ImageView
+            android:id="@+id/vSearchButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:contentDescription="@string/search"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text16Regular"
+            android:text="@string/search"
+            android:textColor="@color/textDisabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/vSearchButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<androidx.appcompat.widget.SearchView
             android:id="@+id/vSearchView"
             style="@style/SearchView"
             android:layout_width="match_parent"
@@ -25,7 +47,7 @@
             android:paddingStart="-10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />-->
 
         <ImageView
             android:id="@+id/vQrCodeButton"

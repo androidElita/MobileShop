@@ -8,4 +8,5 @@ import ru.e2e4.shopmobile.di.scopes.MainScope
 @MainScope
 interface MainComponent {
     fun getCategoryComponent(): CategoryComponent
+    fun getSearchComponent(): SearchComponent
 }
