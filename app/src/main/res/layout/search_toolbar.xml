@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/vToolbar"
+    android:id="@+id/vToolbarSearch"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
     android:elevation="5dp"
-    app:contentInsetStart="0dp"
     app:navigationIcon="@drawable/ic_arrow_back">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +15,7 @@
 
         <ru.e2e4.shopmobile.components.customView.SearchInputText
             android:id="@+id/vSearchEditText"
-            style="@style/InputText16Regular"
+            style="@style/Text16Regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"

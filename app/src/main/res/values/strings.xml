@@ -4,7 +4,7 @@
     <string name="deeplink">http://e2e4.ru/{id}</string>
     <string name="nameDB">localDB</string>
 
-    <string name="home">Домой</string>
+    <string name="home">Главная</string>
     <string name="catalog">Каталог</string>
     <string name="desires">Желания</string>
     <string name="cart">Корзина</string>
@@ -13,6 +13,5 @@
     <string name="search">Поиск</string>
     <string name="searchHistory">История запросов</string>
     <string name="searchClean">Очистить историю</string>
-    <string name="searchCleanComplete">История очищена</string>
     <string name="searchHistoryEmpty">История отсутствует</string>
 </resources>

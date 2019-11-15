@@ -3,9 +3,7 @@ package ru.e2e4.shopmobile.modules.main.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import kotlinx.android.synthetic.main.main_activity.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.utils.setupWithNavController
@@ -36,17 +34,12 @@ class MainActivity : AppCompatActivity(R.layout.main_activity) {
     private fun setupBottomNavigationBar() {
         val navGraphIds = listOf(R.navigation.home, R.navigation.catalog, R.navigation.desires, R.navigation.cart, R.navigation.submenu)
         // Setup the bottom navigation view with a list of navigation graphs
-        val controller = vBottomNavigation.setupWithNavController(
+        currentNavController = vBottomNavigation.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
             containerId = R.id.nav_host_fragment,
             intent = intent
         )
-        // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this, Observer { navController ->
-            setupActionBarWithNavController(navController)
-        })
-        currentNavController = controller
     }
 
     override fun onSupportNavigateUp(): Boolean {

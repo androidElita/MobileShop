@@ -8,9 +8,13 @@ import kotlinx.android.synthetic.main.search_history_item.view.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.room.search.SearchHistory
 
-class SearchHistoryAdapter(
-    val data: List<SearchHistory>
-) : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolder>() {
+class SearchHistoryAdapter : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolder>() {
+
+    var data: List<SearchHistory> = listOf()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context)
