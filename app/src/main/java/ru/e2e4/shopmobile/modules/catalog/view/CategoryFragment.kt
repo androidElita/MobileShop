@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.modules.category.view
+package ru.e2e4.shopmobile.modules.catalog.view
 
 import android.content.Context
 import android.os.Bundle
@@ -12,10 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.catalog_fragment.view.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.di.ComponentContract
-import ru.e2e4.shopmobile.modules.category.adapters.CategoryAdapter
-import ru.e2e4.shopmobile.modules.category.contract.CategoryPresenter
-import ru.e2e4.shopmobile.modules.category.contract.CategoryView
-import ru.e2e4.shopmobile.modules.category.data.CategoryNode
+import ru.e2e4.shopmobile.modules.catalog.adapters.CategoryAdapter
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoryPresenter
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoryView
+import ru.e2e4.shopmobile.modules.catalog.data.CategoryNode
 import ru.e2e4.shopmobile.utils.ItemOffsetDecoration
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.modules.category.adapters
+package ru.e2e4.shopmobile.modules.catalog.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.catalog_recycler_category_item.view.*
 import ru.e2e4.shopmobile.R
-import ru.e2e4.shopmobile.modules.category.data.CategoryNode
+import ru.e2e4.shopmobile.modules.catalog.data.CategoryNode
 
 class CategoryAdapter(private val categories: List<CategoryNode>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
@@ -28,7 +28,6 @@ class CategoryAdapter(private val categories: List<CategoryNode>) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(categoryNode: CategoryNode) {
             itemView.vCategory.text = categoryNode.name
-
         }
     }
 }

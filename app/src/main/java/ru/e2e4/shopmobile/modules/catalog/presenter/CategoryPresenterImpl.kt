@@ -1,10 +1,10 @@
-package ru.e2e4.shopmobile.modules.category.presenter
+package ru.e2e4.shopmobile.modules.catalog.presenter
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import ru.e2e4.shopmobile.modules.category.contract.CategoryModel
-import ru.e2e4.shopmobile.modules.category.contract.CategoryPresenter
-import ru.e2e4.shopmobile.modules.category.contract.CategoryView
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoryModel
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoryPresenter
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoryView
 import ru.e2e4.shopmobile.mvp.RxAbstractPresenter
 import javax.inject.Inject
 

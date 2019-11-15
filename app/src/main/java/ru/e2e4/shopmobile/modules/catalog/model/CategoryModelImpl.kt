@@ -1,9 +1,9 @@
-package ru.e2e4.shopmobile.modules.category.model
+package ru.e2e4.shopmobile.modules.catalog.model
 
 import io.reactivex.Single
-import ru.e2e4.shopmobile.modules.category.contract.CategoryModel
-import ru.e2e4.shopmobile.modules.category.data.CategoryNode
-import ru.e2e4.shopmobile.modules.category.data.CategoryRestService
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoryModel
+import ru.e2e4.shopmobile.modules.catalog.data.CategoryNode
+import ru.e2e4.shopmobile.modules.catalog.data.CategoryRestService
 import javax.inject.Inject
 
 class CategoryModelImpl @Inject constructor(

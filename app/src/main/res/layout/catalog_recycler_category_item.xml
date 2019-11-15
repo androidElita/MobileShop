@@ -15,18 +15,23 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/vCategory"
             style="@style/Text16Regular"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/value24"
+            android:layout_marginEnd="@dimen/value16"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vImageCategory"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Категория" />
+            tools:text="Ну очень длинное название категории" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/vImageCategory"
             android:layout_width="@dimen/value72"
             android:layout_height="@dimen/value72"
+            android:src="@drawable/ic_icon_picture"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

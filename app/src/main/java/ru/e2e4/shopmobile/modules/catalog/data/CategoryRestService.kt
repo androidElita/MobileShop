@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.modules.category.data
+package ru.e2e4.shopmobile.modules.catalog.data
 
 import io.reactivex.Single
 import retrofit2.http.GET

@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.modules.category.contract
+package ru.e2e4.shopmobile.modules.catalog.contract
 
 import ru.e2e4.shopmobile.mvp.BasePresenter
 

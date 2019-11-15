@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="ru.e2e4.shopmobile.modules.category.view.CategoryFragment"
+        android:name="ru.e2e4.shopmobile.modules.catalog.view.CategoryFragment"
         android:label="catalog_fragment"
         tools:layout="@layout/catalog_fragment" />
 </navigation>
