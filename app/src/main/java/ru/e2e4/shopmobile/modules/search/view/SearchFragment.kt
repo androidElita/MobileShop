@@ -64,12 +64,12 @@ class SearchFragment : Fragment(R.layout.search_fragment), SearchView {
     }
 
     override fun hideSearchHistory() {
-        vSearchHistoryText.visibility = View.GONE
-        vSearchCleanHistoryText.visibility = View.GONE
+        vSearchHistoryText.visibility = View.INVISIBLE
+        vSearchCleanHistoryText.visibility = View.INVISIBLE
     }
 
     override fun hideEmptyHistoryMessage() {
-        vEmptyHistoryText.visibility = View.GONE
+        vEmptyHistoryText.visibility = View.INVISIBLE
     }
 
     override fun cleanInputSearch() {
@@ -77,7 +77,7 @@ class SearchFragment : Fragment(R.layout.search_fragment), SearchView {
     }
 
     override fun hideCleanSearch() {
-        vCleanTextButton.visibility = View.GONE
+        vCleanTextButton.visibility = View.INVISIBLE
     }
 
     override fun showCleanSearch() {
