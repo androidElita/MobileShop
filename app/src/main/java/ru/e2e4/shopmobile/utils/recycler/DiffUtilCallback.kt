@@ -1,7 +1,15 @@
-package ru.e2e4.shopmobile.utils.diffUtil
+package ru.e2e4.shopmobile.utils.recycler
 
 import androidx.recyclerview.widget.DiffUtil
 
+/**
+ * Класс определения правил для динамического (анимированного) обновления списка RecyclerView
+ * В класс передаются два списка, которые по-элементно сравниваются между собой
+ * Работает быстрее, чем полное обновление списка через notifyDataSetChanged() в RecyclerView.Adapter
+ *
+ * @param oldList старый список
+ * @param newList новый список, заменяющий [oldList]
+ */
 class DiffUtilCallback<V : DiffUtilItem<V>>(
     private val oldList: List<V>,
     private val newList: List<V>

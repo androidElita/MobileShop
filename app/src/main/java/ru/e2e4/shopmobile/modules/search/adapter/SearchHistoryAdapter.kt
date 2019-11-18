@@ -1,35 +1,21 @@
 package ru.e2e4.shopmobile.modules.search.adapter
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.search_history_item.view.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.room.search.SearchHistory
+import ru.e2e4.shopmobile.utils.recycler.RecyclerAdapterAbstract
+import ru.e2e4.shopmobile.utils.recycler.RecyclerDiffUtilAdapterAbstract
 
-class SearchHistoryAdapter : RecyclerView.Adapter<SearchHistoryAdapter.ViewHolder>() {
-
-    var data: List<SearchHistory> = listOf()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+class SearchHistoryAdapter : RecyclerDiffUtilAdapterAbstract<SearchHistory, SearchHistoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.search_history_item, parent, false))
+        return ViewHolder(getInflater(parent, R.layout.search_history_item))
     }
 
-    override fun getItemCount() = data.size
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val value = data[position]
-        holder.bind(value)
-    }
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: SearchHistory) {
+    inner class ViewHolder(itemView: View) : RecyclerAdapterAbstract<SearchHistory, ViewHolder>.ViewHolder(itemView) {
+        override fun bind(item: SearchHistory) {
             itemView.apply {
                 vHistoryText.text = item.text
             }
