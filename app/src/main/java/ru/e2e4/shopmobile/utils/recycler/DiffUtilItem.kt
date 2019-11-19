@@ -15,5 +15,5 @@ interface DiffUtilItem<V> {
      * чтобы определить, изменилось ли содержимое элемента
      * @param newProduct новый элемент списка
      */
-    fun areContentsTheSame(newProduct: V): Boolean
+    fun areContentsTheSame(newProduct: V): Boolean = false
 }

@@ -3,7 +3,8 @@ package ru.e2e4.shopmobile.room.search
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.e2e4.shopmobile.utils.recycler.DiffUtilItem
+import ru.e2e4.shopmobile.R
+import ru.e2e4.shopmobile.modules.search.data.SearchItem
 
 @Entity(tableName = "searchHistory")
 open class SearchHistory(
@@ -13,15 +14,12 @@ open class SearchHistory(
 
     @PrimaryKey
     @ColumnInfo(name = "text")
-    val text: String
+    override val text: String
 
-) : DiffUtilItem<SearchHistory> {
+) : SearchItem {
 
-    override fun areItemsTheSame(newProduct: SearchHistory): Boolean {
-        return text == newProduct.text
-    }
+    override val icon: Int
+        get() = R.drawable.ic_history
 
-    override fun areContentsTheSame(newProduct: SearchHistory): Boolean {
-        return searchTime == newProduct.searchTime
-    }
+    override fun areItemsTheSame(newProduct: SearchItem) = (text == newProduct.text)
 }

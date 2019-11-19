@@ -5,27 +5,47 @@ import io.reactivex.schedulers.Schedulers
 import ru.e2e4.shopmobile.modules.search.contract.SearchModel
 import ru.e2e4.shopmobile.modules.search.contract.SearchPresenter
 import ru.e2e4.shopmobile.modules.search.contract.SearchView
+import ru.e2e4.shopmobile.modules.search.data.Search
+import ru.e2e4.shopmobile.modules.search.data.SearchItem
+import ru.e2e4.shopmobile.modules.search.data.SearchResult
 import ru.e2e4.shopmobile.mvp.RxAbstractPresenter
+import ru.e2e4.shopmobile.utils.language.numbericalFormOfNoun
+import ru.e2e4.shopmobile.utils.language.pluralDefinition
+import ru.e2e4.shopmobile.utils.resource.ResourceManager
 import javax.inject.Inject
 
 class SearchPresenterImpl @Inject constructor(
-    val model: SearchModel
+    private val model: SearchModel,
+    private val resource: ResourceManager
 ) : SearchPresenter, RxAbstractPresenter<SearchView>() {
 
-    override fun search(inputText: String) {
-        val data = inputText.toLowerCase() //TODO С точки зрения локализации это плохо (https://developer.android.com/reference/java/util/Locale.html#default_locale)
-            .trim()
+    override fun confirmInput(inputText: String) {
+        val data = handleText(inputText)
         if (data.isEmpty()) return
-        getView().cleanInputSearch()
         model.addSearchHistory(data)
-        loadSearchHistory()
+    }
+
+    private fun search(inputText: String) {
+        val data = handleText(inputText)
+        if (data.isEmpty()) return
+        val result = Search(count = 3, items = listOf(
+            SearchResult("Ноутбуки"),
+            SearchResult("Клавиатура для ноутбука"),
+            SearchResult("Вентиляторы и системы охлаждения")
+        ))
+        getView().showSearchMessage(
+            getCountSearchMessage(result.count)
+        )
+        getView().showSearchResult(result.items)
     }
 
     override fun inputtingText(inputText: String) {
         if (inputText.isEmpty()){
+            loadSearchHistory()
             getView().hideCleanSearch()
         } else {
             getView().showCleanSearch()
+            search(inputText)
         }
     }
 
@@ -38,7 +58,6 @@ class SearchPresenterImpl @Inject constructor(
                     if (list.isEmpty()) {
                         emptyHistory()
                     } else {
-                        getView().hideEmptyHistoryMessage()
                         getView().showSearchHistory(list)
                     }
                 }, {
@@ -47,17 +66,41 @@ class SearchPresenterImpl @Inject constructor(
         )
     }
 
-    override fun cleanInputSearch() {
-        getView().cleanInputSearch()
+    override fun selectHistoryItem(item: SearchItem) {
+        getView().setInputSearchText(item.text)
     }
 
-    private fun emptyHistory() {
-        getView().hideSearchHistory()
-        getView().showEmptyHistoryMessage()
+    override fun selectSearchItem(item: SearchItem) {
+
+    }
+
+    override fun cleanInputSearch() {
+        getView().cleanInputSearch()
     }
 
     override fun cleanHistory() {
         model.cleanHistory()
         loadSearchHistory()
+    }
+
+    private fun handleText(inputText: String): String {
+        return inputText.toLowerCase() //TODO С точки зрения локализации это плохо (https://developer.android.com/reference/java/util/Locale.html#default_locale)
+            .trim()
+    }
+
+    private fun emptySearch() {
+        getView().showSearchResult(listOf())
+        getView().showSearchMessage(resource.searchEmpty)
+    }
+
+    private fun emptyHistory() {
+        getView().showSearchResult(listOf())
+        getView().showSearchMessage(resource.searchHistoryEmpty)
+    }
+
+    private fun getCountSearchMessage(count: Int): String {
+        val foundText = pluralDefinition(count, resource.found[0], resource.found[1])
+        val goodsText = numbericalFormOfNoun(count, resource.goods[0], resource.goods[1], resource.goods[2])
+        return "$foundText $count $goodsText"
     }
 }

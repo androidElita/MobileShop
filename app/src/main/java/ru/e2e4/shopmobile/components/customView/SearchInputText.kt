@@ -5,7 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
-import ru.e2e4.shopmobile.utils.SoftKeyboardUtils
+import ru.e2e4.shopmobile.utils.areConfirmButtonIsPressed
 
 /**
  * Кастомное вью переопределяющее часто используемые события ввода при поиске
@@ -30,7 +30,7 @@ class SearchInputText(context: Context, attrs: AttributeSet) : AppCompatEditText
 
     fun areConfirmButtonIsPressed(listener: (String) -> Unit) {
         setOnEditorActionListener { v, actionId, event ->
-            if (SoftKeyboardUtils.areConfirmButtonIsPressed(actionId, event)) {
+            if (areConfirmButtonIsPressed(actionId, event)) {
                 listener(v.text.toString())
                 return@setOnEditorActionListener true
             }

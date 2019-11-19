@@ -3,6 +3,7 @@
     <string name="price12regular"><strike>Price 12 Regular</strike></string>
     <string name="deeplink">http://e2e4.ru/{id}</string>
     <string name="nameDB">localDB</string>
+    <string name="parseKey">[val]</string>
 
     <string name="home">Главная</string>
     <string name="catalog">Каталог</string>
@@ -14,4 +15,15 @@
     <string name="searchHistory">История запросов</string>
     <string name="searchClean">Очистить историю</string>
     <string name="searchHistoryEmpty">История отсутствует</string>
+    <string name="searchEmpty">Совпадений не найдено</string>
+    <string name="searchByCategory">Искать только в данной категории</string>
+    <array name="find">
+        <item>Найден</item>
+        <item>Найдено</item>
+    </array>
+    <array name="goods">
+       <item>товар</item>
+       <item>товара</item>
+       <item>товаров</item>
+    </array>
 </resources>

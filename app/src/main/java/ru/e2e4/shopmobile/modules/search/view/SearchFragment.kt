@@ -16,8 +16,9 @@ import ru.e2e4.shopmobile.di.ComponentContract
 import ru.e2e4.shopmobile.modules.search.adapter.SearchHistoryAdapter
 import ru.e2e4.shopmobile.modules.search.contract.SearchPresenter
 import ru.e2e4.shopmobile.modules.search.contract.SearchView
-import ru.e2e4.shopmobile.room.search.SearchHistory
-import ru.e2e4.shopmobile.utils.SoftKeyboardUtils
+import ru.e2e4.shopmobile.modules.search.data.SearchItem
+import ru.e2e4.shopmobile.utils.hideKeyboard
+import ru.e2e4.shopmobile.utils.showKeyboard
 import javax.inject.Inject
 
 class SearchFragment : Fragment(R.layout.search_fragment), SearchView {
@@ -40,40 +41,45 @@ class SearchFragment : Fragment(R.layout.search_fragment), SearchView {
         vSearchHistoryRecyclerView.layoutManager = LinearLayoutManager(context)
         adapterHistory = SearchHistoryAdapter()
         vSearchHistoryRecyclerView.adapter = adapterHistory
-        SoftKeyboardUtils.show(activity!!, vSearchEditText) // показываем клавиатуру
+        showKeyboard(activity!!, vSearchEditText) // показываем клавиатуру
         vSearchEditText.afterTextChanged { presenter.inputtingText(it) }
-        vSearchEditText.areConfirmButtonIsPressed { presenter.search(it) }
+        vSearchEditText.areConfirmButtonIsPressed { presenter.confirmInput(it) }
         vCleanTextButton.setOnClickListener { presenter.cleanInputSearch() }
         vSearchCleanHistoryText.setOnClickListener { presenter.cleanHistory() }
         presenter.loadSearchHistory()
         vToolbarSearch.setNavigationOnClickListener {
-            SoftKeyboardUtils.hide(activity!!, vSearchEditText)
+            hideKeyboard(activity!!, vSearchEditText)
             activity?.onBackPressed()
         }
     }
 
-    override fun showSearchHistory(list: List<SearchHistory>) {
+    override fun showSearchResult(list: List<SearchItem>) {
+        adapterHistory.data = list
+        adapterHistory.onClickListener = { presenter.selectSearchItem(it) }
+    }
+
+    override fun showSearchHistory(list: List<SearchItem>) {
+        vMessageSearchText.visibility = View.INVISIBLE
+        hideCategorySwitch()
         vSearchHistoryText.visibility = View.VISIBLE
         vSearchCleanHistoryText.visibility = View.VISIBLE
         adapterHistory.data = list
+        adapterHistory.onClickListener = { presenter.selectHistoryItem(it) }
     }
 
-    override fun showEmptyHistoryMessage() {
-        vEmptyHistoryText.visibility = View.VISIBLE
-        adapterHistory.data = listOf()
-    }
-
-    override fun hideSearchHistory() {
+    override fun showSearchMessage(message: String) {
         vSearchHistoryText.visibility = View.INVISIBLE
         vSearchCleanHistoryText.visibility = View.INVISIBLE
-    }
-
-    override fun hideEmptyHistoryMessage() {
-        vEmptyHistoryText.visibility = View.INVISIBLE
+        vMessageSearchText.visibility = View.VISIBLE
+        vMessageSearchText.text = message
     }
 
     override fun cleanInputSearch() {
         vSearchEditText.clean()
+    }
+
+    override fun setInputSearchText(text: String) {
+        vSearchEditText.setText(text)
     }
 
     override fun hideCleanSearch() {
@@ -82,5 +88,13 @@ class SearchFragment : Fragment(R.layout.search_fragment), SearchView {
 
     override fun showCleanSearch() {
         vCleanTextButton.visibility = View.VISIBLE
+    }
+
+    override fun showCategorySwitch() {
+        vCategorySwitch.visibility = View.VISIBLE
+    }
+
+    override fun hideCategorySwitch() {
+        vCategorySwitch.visibility = View.GONE
     }
 }

@@ -1,24 +1,20 @@
 package ru.e2e4.shopmobile.modules.search.adapter
 
-import android.view.View
-import android.view.ViewGroup
 import kotlinx.android.synthetic.main.search_history_item.view.*
 import ru.e2e4.shopmobile.R
-import ru.e2e4.shopmobile.room.search.SearchHistory
-import ru.e2e4.shopmobile.utils.recycler.RecyclerAdapterAbstract
-import ru.e2e4.shopmobile.utils.recycler.RecyclerDiffUtilAdapterAbstract
+import ru.e2e4.shopmobile.modules.search.data.SearchItem
+import ru.e2e4.shopmobile.utils.recycler.RecyclerDiffUtilAdapter
 
-class SearchHistoryAdapter : RecyclerDiffUtilAdapterAbstract<SearchHistory, SearchHistoryAdapter.ViewHolder>() {
+class SearchHistoryAdapter : RecyclerDiffUtilAdapter<SearchItem>(R.layout.search_history_item) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(getInflater(parent, R.layout.search_history_item))
-    }
+    var onClickListener: (SearchItem) -> Unit = { }
 
-    inner class ViewHolder(itemView: View) : RecyclerAdapterAbstract<SearchHistory, ViewHolder>.ViewHolder(itemView) {
-        override fun bind(item: SearchHistory) {
-            itemView.apply {
-                vHistoryText.text = item.text
-            }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val value = data[position]
+        holder.itemView.apply {
+            vHistoryText.text = value.text
+            vHistoryIcon.setImageResource(value.icon)
+            setOnClickListener { onClickListener(value) }
         }
     }
 }
