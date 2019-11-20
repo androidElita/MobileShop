@@ -4,5 +4,5 @@ import ru.e2e4.shopmobile.utils.recycler.DiffUtilItem
 
 interface SearchItem : DiffUtilItem<SearchItem> {
     val text: String
-    val icon: Int
+    val type: SearchType
 }

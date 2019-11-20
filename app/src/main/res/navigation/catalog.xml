@@ -9,5 +9,11 @@
         android:id="@+id/catalogFragment"
         android:name="ru.e2e4.shopmobile.modules.category.view.CategoryFragment"
         android:label="catalog_fragment"
-        tools:layout="@layout/catalog_fragment" />
+        tools:layout="@layout/catalog_fragment" >
+    </fragment>
+    <activity
+        android:id="@+id/searchActivity2"
+        android:name="ru.e2e4.shopmobile.modules.search.view.SearchActivity"
+        android:label="SearchActivity"
+        tools:layout="@layout/search_fragment"/>
 </navigation>

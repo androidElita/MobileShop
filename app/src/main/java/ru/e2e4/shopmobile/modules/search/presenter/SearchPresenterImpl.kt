@@ -1,5 +1,6 @@
 package ru.e2e4.shopmobile.modules.search.presenter
 
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.e2e4.shopmobile.modules.search.contract.SearchModel
@@ -12,6 +13,7 @@ import ru.e2e4.shopmobile.mvp.RxAbstractPresenter
 import ru.e2e4.shopmobile.utils.language.numbericalFormOfNoun
 import ru.e2e4.shopmobile.utils.language.pluralDefinition
 import ru.e2e4.shopmobile.utils.resource.ResourceManager
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class SearchPresenterImpl @Inject constructor(
@@ -25,27 +27,50 @@ class SearchPresenterImpl @Inject constructor(
         model.addSearchHistory(data)
     }
 
-    private fun search(inputText: String) {
+    override fun search(inputText: String) {
         val data = handleText(inputText)
-        if (data.isEmpty()) return
-        val result = Search(count = 3, items = listOf(
-            SearchResult("Ноутбуки"),
-            SearchResult("Клавиатура для ноутбука"),
-            SearchResult("Вентиляторы и системы охлаждения")
-        ))
-        getView().showSearchMessage(
-            getCountSearchMessage(result.count)
+        if (data.isEmpty()) {
+            loadSearchHistory()
+            return
+        }
+        addDisposable(
+            Single.just( // TODO Заменить на запрос
+                Search(count = 325342, items = listOf(
+                    SearchResult(data),
+                    SearchResult("Ноутбуки"),
+                    SearchResult("Клавиатура для ноутбука"),
+                    SearchResult("Вентиляторы и системы охлаждения")
+            )))
+                .delay(0, TimeUnit.MILLISECONDS, Schedulers.io())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { getView().showLoadingAction() }
+                .doFinally { getView().hideLoadingAction() }
+                .flatMap {
+                    getView().showSearchMessage(getCountSearchMessage(it.count))
+                    return@flatMap Single.just(it.items as List<SearchItem>)
+                }
+                .concatWith(model.getSearchHistory())
+                .flatMapIterable { list -> list }
+                .toList()
+                .subscribe({
+                    when {
+                        getView().getInputSearchText().isEmpty() -> loadSearchHistory()
+                        it.isNotEmpty() -> getView().showSearchResult(it)
+                        else -> emptySearch()
+                    }
+                }, {
+                    // TODO обрабатывать
+                    emptySearch()
+                })
         )
-        getView().showSearchResult(result.items)
     }
 
     override fun inputtingText(inputText: String) {
         if (inputText.isEmpty()){
-            loadSearchHistory()
             getView().hideCleanSearch()
         } else {
             getView().showCleanSearch()
-            search(inputText)
         }
     }
 
@@ -71,7 +96,7 @@ class SearchPresenterImpl @Inject constructor(
     }
 
     override fun selectSearchItem(item: SearchItem) {
-
+        // TODO обрабатывать
     }
 
     override fun cleanInputSearch() {
@@ -99,8 +124,10 @@ class SearchPresenterImpl @Inject constructor(
     }
 
     private fun getCountSearchMessage(count: Int): String {
-        val foundText = pluralDefinition(count, resource.found[0], resource.found[1])
-        val goodsText = numbericalFormOfNoun(count, resource.goods[0], resource.goods[1], resource.goods[2])
-        return "$foundText $count $goodsText"
+        return if (count > 0){
+            val foundText = pluralDefinition(count, resource.found[0], resource.found[1])
+            val goodsText = numbericalFormOfNoun(count, resource.goods[0], resource.goods[1], resource.goods[2])
+            "$foundText $count $goodsText"
+        } else resource.searchEmpty
     }
 }

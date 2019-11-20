@@ -17,6 +17,8 @@ interface SearchPresenter : BasePresenter<SearchView> {
      */
     fun inputtingText(inputText: String)
 
+    fun search(inputText: String)
+
     fun selectHistoryItem(item: SearchItem)
     fun selectSearchItem(item: SearchItem)
 

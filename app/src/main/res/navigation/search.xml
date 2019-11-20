@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search"
+    tools:layout="@layout/search_activity"
+    app:startDestination="@id/searchFragment"
+    tools:context=".modules.search.view.SearchActivity">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="ru.e2e4.shopmobile.modules.search.view.SearchFragment"
+        android:label="SearchFragment"
+        app:defaultNavHost="true"
+        tools:layout="@layout/search_fragment"/>
+</navigation>

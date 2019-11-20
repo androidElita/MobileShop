@@ -27,6 +27,8 @@
         <activity android:name=".modules.main.view.MainActivity">
             <nav-graph android:value="@navigation/home" />
         </activity>
+        <activity android:name=".modules.search.view.SearchActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@ import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.modules.search.data.SearchItem
 import ru.e2e4.shopmobile.utils.recycler.RecyclerDiffUtilAdapter
 
-class SearchHistoryAdapter : RecyclerDiffUtilAdapter<SearchItem>(R.layout.search_history_item) {
+class SearchAdapter : RecyclerDiffUtilAdapter<SearchItem>(R.layout.search_history_item) {
 
     var onClickListener: (SearchItem) -> Unit = { }
 
@@ -13,7 +13,7 @@ class SearchHistoryAdapter : RecyclerDiffUtilAdapter<SearchItem>(R.layout.search
         val value = data[position]
         holder.itemView.apply {
             vHistoryText.text = value.text
-            vHistoryIcon.setImageResource(value.icon)
+            vHistoryIcon.setImageResource(value.type.icon)
             setOnClickListener { onClickListener(value) }
         }
     }

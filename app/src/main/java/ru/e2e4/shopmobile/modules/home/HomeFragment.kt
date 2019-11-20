@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
             startActivityForResult(launchIntent, BARCODE_READER_ACTIVITY_REQUEST)
         }
         vSearchLayout.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+            findNavController().navigate(R.id.searchActivity)
         }
     }
 
