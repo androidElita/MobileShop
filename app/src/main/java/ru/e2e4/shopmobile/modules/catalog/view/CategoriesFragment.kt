@@ -7,19 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.catalog_fragment.view.*
+import kotlinx.android.synthetic.main.catalog_fragment_categories.view.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.di.ComponentContract
-import ru.e2e4.shopmobile.modules.catalog.adapters.CategoryAdapter
-import ru.e2e4.shopmobile.modules.catalog.contract.CategoryPresenter
-import ru.e2e4.shopmobile.modules.catalog.contract.CategoryView
-import ru.e2e4.shopmobile.modules.catalog.data.CategoryNode
+import ru.e2e4.shopmobile.modules.catalog.adapters.CategoriesAdapter
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryPresenter
+import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryView
+import ru.e2e4.shopmobile.modules.catalog.data.CategoriesNode
 import ru.e2e4.shopmobile.utils.ItemOffsetDecoration
 import javax.inject.Inject
 
-class CategoryFragment : Fragment(), CategoryView {
+class CategoriesFragment : Fragment(), CategoryView {
 
     @Inject
     lateinit var presenter: CategoryPresenter
@@ -27,7 +28,7 @@ class CategoryFragment : Fragment(), CategoryView {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (context.applicationContext as ComponentContract).getCategoryComponent().inject(this)
+        (context.applicationContext as ComponentContract).getCategoriesComponent().inject(this)
         presenter.attachView(this)
     }
 
@@ -36,7 +37,7 @@ class CategoryFragment : Fragment(), CategoryView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.catalog_fragment, container, false)
+        val rootView = inflater.inflate(R.layout.catalog_fragment_categories, container, false)
         presenter.loadCategoryTree()
         return rootView
     }
@@ -46,8 +47,17 @@ class CategoryFragment : Fragment(), CategoryView {
         vCategories.layoutManager = LinearLayoutManager(activity)
     }
 
-    override fun showCategory(categories: CategoryNode) {
-        vCategories.adapter = CategoryAdapter(categories.children)
+    override fun showCategory(categories: CategoriesNode) {
+        val adapter = CategoriesAdapter(categories.children).apply {
+            onItemClickListener = { subcategory ->
+                val action =
+                    CategoriesFragmentDirections.actionCatalogFragmentToSubcategoriesFragment(
+                        subcategory
+                    )
+                findNavController().navigate(action)
+            }
+        }
+        vCategories.adapter = adapter
         vCategories.addItemDecoration(ItemOffsetDecoration(resources))
     }
 

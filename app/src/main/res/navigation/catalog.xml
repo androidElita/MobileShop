@@ -7,7 +7,20 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="ru.e2e4.shopmobile.modules.catalog.view.CategoryFragment"
+        android:name="ru.e2e4.shopmobile.modules.catalog.view.CategoriesFragment"
         android:label="catalog_fragment"
-        tools:layout="@layout/catalog_fragment" />
+        tools:layout="@layout/catalog_fragment_categories">
+        <action
+            android:id="@+id/action_catalogFragment_to_subcategoriesFragment"
+            app:destination="@+id/subcategoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subcategoriesFragment"
+        android:name="ru.e2e4.shopmobile.modules.catalog.view.SubcategoriesFragment"
+        android:label="catalog_fragment_subcategories"
+        tools:layout="@layout/catalog_fragment_subcategories">
+        <argument
+            android:name="subcategories"
+            app:argType="ru.e2e4.shopmobile.modules.catalog.data.CategoriesNode" />
+    </fragment>
 </navigation>

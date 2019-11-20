@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#212B36</color>
     <color name="colorAccent">#E21939</color>
+    <color name="colorPrimaryBackground">#FFFFFF</color>
     <color name="error">#E62325</color>
     <color name="success">#27AB2C</color>
     <color name="warning">#FFA726</color>
@@ -12,7 +13,7 @@
     <color name="textPrimary">#212121</color>
     <color name="textLight">#808080</color>
     <color name="textDisabled">#C2C2C2</color>
-    <color name="textWhite">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="errorLight">#FDEDEE</color>
     <color name="border">#E6E6E6</color> <!-- border, hover, focus, active -->
     <color name="disabled">#ECEFF1</color>
@@ -21,5 +22,5 @@
     <color name="focusPrimary">#FCE8EB</color>
     <color name="icon">#D1D1D1</color>
     <color name="iconDark">#333333</color>
-    <color name="darkLight">#F0F0F0</color>
+    <color name="darkLight">#19F0F0F0</color>
 </resources>

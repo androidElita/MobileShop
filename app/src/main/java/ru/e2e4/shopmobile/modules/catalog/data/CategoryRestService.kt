@@ -9,7 +9,7 @@ interface CategoryRestService {
     @GET(PATH + "list")
     fun getCategoryTree(
         @Query("zoneId") zoneId: Int
-    ): Single<CategoryNode>
+    ): Single<CategoriesNode>
 
     companion object {
         const val PATH = "category/"
