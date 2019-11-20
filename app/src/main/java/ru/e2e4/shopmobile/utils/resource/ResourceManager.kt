@@ -5,6 +5,8 @@ package ru.e2e4.shopmobile.utils.resource
  * используются в слоях не зависимых от платформы
  */
 interface ResourceManager {
-
-    val home: String
+    val found: List<String>
+    val goods: List<String>
+    val searchHistoryEmpty: String
+    val searchEmpty: String
 }

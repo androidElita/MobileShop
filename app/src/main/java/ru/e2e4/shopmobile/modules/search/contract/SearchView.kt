@@ -1,9 +1,16 @@
 package ru.e2e4.shopmobile.modules.search.contract
 
+import ru.e2e4.shopmobile.modules.search.data.SearchItem
 import ru.e2e4.shopmobile.mvp.BaseView
-import ru.e2e4.shopmobile.room.search.SearchHistory
 
 interface SearchView : BaseView {
-    fun showSearchHistory(list: List<SearchHistory>)
-    fun showEmptyHistoryMessage()
+    fun showSearchResult(list: List<SearchItem>)
+    fun showSearchHistory(list: List<SearchItem>)
+    fun showSearchMessage(message: String)
+    fun cleanInputSearch()
+    fun setInputSearchText(text: String)
+    fun showCleanSearch()
+    fun hideCleanSearch()
+    fun showCategorySwitch()
+    fun hideCategorySwitch()
 }

@@ -17,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  * This sample is a workaround until the Navigation Component supports multiple back stacks.
  *
  * TODO Не актуально после резиза 'androidx-fragment-1.3.0' и 'androidx-navigation-2.3.0'
+ * Взято от сюда: https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample
  */
 fun BottomNavigationView.setupWithNavController(
     navGraphIds: List<Int>,
@@ -88,11 +89,6 @@ fun BottomNavigationView.setupWithNavController(
                     // Commit a transaction that cleans the back stack and adds the first fragment
                     // to it, creating the fixed started destination.
                     fragmentManager.beginTransaction()
-                        /*.setCustomAnimations(
-                            R.anim.nav_default_enter_anim,
-                            R.anim.nav_default_exit_anim,
-                            R.anim.nav_default_pop_enter_anim,
-                            R.anim.nav_default_pop_exit_anim)*/
                         .attach(selectedFragment)
                         .setPrimaryNavigationFragment(selectedFragment)
                         .apply {

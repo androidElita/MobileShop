@@ -2,14 +2,12 @@ package ru.e2e4.shopmobile.modules.home
 
 
 import android.app.Activity
-import android.app.SearchManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -41,13 +39,6 @@ class HomeFragment : Fragment() {
         vSearchLayout.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        if (Intent.ACTION_SEARCH == (activity as AppCompatActivity).intent.action) {
-            (activity as AppCompatActivity).intent.getStringExtra(SearchManager.QUERY)?.also { query ->
-                Toast.makeText(activity, query, Toast.LENGTH_LONG)
-                    .show()
-            }
-        }
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
