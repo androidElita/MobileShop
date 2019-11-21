@@ -17,7 +17,7 @@ import ru.e2e4.shopmobile.modules.catalog.adapters.CategoriesAdapter
 import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryPresenter
 import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryView
 import ru.e2e4.shopmobile.modules.catalog.data.CategoriesNode
-import ru.e2e4.shopmobile.utils.ItemOffsetDecoration
+import ru.e2e4.shopmobile.utils.recycler.ItemOffsetDecoration
 import javax.inject.Inject
 
 class CategoriesFragment : Fragment(), CategoryView {
@@ -48,7 +48,10 @@ class CategoriesFragment : Fragment(), CategoryView {
     }
 
     override fun showCategory(categories: CategoriesNode) {
-        val adapter = CategoriesAdapter(categories.children).apply {
+        val adapter = CategoriesAdapter(
+            categories.children,
+            R.layout.catalog_recycler_category_item
+        ).apply {
             onItemClickListener = { subcategory ->
                 val action =
                     CategoriesFragmentDirections.actionCatalogFragmentToSubcategoriesFragment(

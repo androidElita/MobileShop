@@ -10,4 +10,5 @@
     <dimen name="value72">72dp</dimen>
     <dimen name="value80">80dp</dimen>
     <dimen name="value96">96dp</dimen>
+    <dimen name="value14">14</dimen>
 </resources>

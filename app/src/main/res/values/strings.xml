@@ -16,6 +16,7 @@
     <string name="searchHistoryEmpty">История отсутствует</string>
     <string name="searchEmpty">Совпадений не найдено</string>
     <string name="searchByCategory">Искать только в данной категории</string>
+    <string name="allGoods">Все товары</string>
     <array name="find">
         <item>Найден</item>
         <item>Найдено</item>

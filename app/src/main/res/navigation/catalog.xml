@@ -20,7 +20,7 @@
         android:label="catalog_fragment_subcategories"
         tools:layout="@layout/catalog_fragment_subcategories">
         <argument
-            android:name="subcategories"
+            android:name="category"
             app:argType="ru.e2e4.shopmobile.modules.catalog.data.CategoriesNode" />
     </fragment>
 </navigation>

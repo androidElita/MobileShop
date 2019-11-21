@@ -1,4 +1,4 @@
-package ru.e2e4.shopmobile.utils
+package ru.e2e4.shopmobile.utils.recycler
 
 import android.content.res.Resources
 import android.graphics.Rect
@@ -17,7 +17,6 @@ class ItemOffsetDecoration(resources: Resources) : RecyclerView.ItemDecoration()
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        super.getItemOffsets(outRect, view, parent, state)
         with(outRect) {
             if (parent.getChildAdapterPosition(view) == 0) {
                 top = offset16
