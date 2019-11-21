@@ -6,20 +6,22 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimaryBackground">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
+    <ru.e2e4.shopmobile.utils.SquareCardView
+        android:id="@+id/vCardView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        app:cardCornerRadius="@dimen/value4"
+        app:cardElevation="@dimen/value0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/vImageCategory"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:src="@drawable/ic_icon_picture" />
-    </com.google.android.material.card.MaterialCardView>
+    </ru.e2e4.shopmobile.utils.SquareCardView>
 
     <TextView
         android:id="@+id/vCategory"
@@ -29,13 +31,16 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/vCardView"
         tools:text="Приводы и накопители" />
 
-    <com.google.android.material.card.MaterialCardView
+    <ru.e2e4.shopmobile.utils.SquareCardView
+        android:id="@+id/vForegroundCardView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:cardBackgroundColor="#0F000000"
+        app:cardCornerRadius="@dimen/value4"
+        app:cardElevation="@dimen/value0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

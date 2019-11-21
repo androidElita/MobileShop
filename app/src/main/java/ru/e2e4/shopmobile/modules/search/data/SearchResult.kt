@@ -5,7 +5,7 @@ import ru.e2e4.shopmobile.R
 class SearchResult(override val text: String) : SearchItem {
 
     override val icon: Int
-        get() = R.drawable.ic_search
+        get() = R.drawable.ic_search_hint
 
     override fun areItemsTheSame(newProduct: SearchItem): Boolean {
         return text == newProduct.text

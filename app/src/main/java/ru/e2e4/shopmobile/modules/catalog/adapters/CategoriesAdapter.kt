@@ -36,7 +36,7 @@ class CategoriesAdapter(
         fun bind(categoryNode: CategoriesNode) {
             itemView.vCategory.text = categoryNode.name
             Picasso.get()
-                .load("https://images.e2e4online.ru/o/861281.jpg")
+                .load("https://images.e2e4online.ru/o/5697910.jpg")
                 .placeholder(R.drawable.ic_icon_picture)
                 .fit()
                 .into(itemView.vImageCategory)
