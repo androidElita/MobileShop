@@ -49,10 +49,7 @@ class SubcategoriesFragment : Fragment(), SubcategoriesView {
         view.vSubcategories.layoutManager = GridLayoutManager(activity, 3)
         view.vSubcategories.addItemDecoration(GridItemDecoration())
 
-        val adapter = CategoriesAdapter(
-            category.children,
-            R.layout.catalog_recycler_subcategory_item
-        )
+        val adapter = CategoriesAdapter(category.children)
         adapter.onItemClickListener = { subcategory ->
             val action =
                 SubcategoriesFragmentDirections.actionSubcategoriesFragmentSelf(subcategory)

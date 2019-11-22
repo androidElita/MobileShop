@@ -24,7 +24,7 @@
     </ru.e2e4.shopmobile.utils.SquareCardView>
 
     <TextView
-        android:id="@+id/vCategory"
+        android:id="@+id/vSubcategory"
         style="@style/Text14Regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -48,10 +48,7 @@ class CategoriesFragment : Fragment(), CategoryView {
     }
 
     override fun showCategory(categories: CategoriesNode) {
-        val adapter = CategoriesAdapter(
-            categories.children,
-            R.layout.catalog_recycler_category_item
-        ).apply {
+        val adapter = CategoriesAdapter(categories.children).apply {
             onItemClickListener = { subcategory ->
                 val action =
                     CategoriesFragmentDirections.actionCatalogFragmentToSubcategoriesFragment(
