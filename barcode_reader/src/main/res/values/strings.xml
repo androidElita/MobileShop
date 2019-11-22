@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">barcode</string>
+    <string name="appName">barcode</string>
     <string name="ok">OK</string>
     <string name="grant_permission">Grant Permission</string>
     <string name="permission_camera">This app needs camera permission to scan barcode</string>

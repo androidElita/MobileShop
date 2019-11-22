@@ -3,6 +3,9 @@ package ru.e2e4.shopmobile.modules.catalog.view
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -10,11 +13,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.catalog_fragment_subcategories.view.*
+import kotlinx.android.synthetic.main.main_toolbar.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.modules.catalog.adapters.CategoriesAdapter
 import ru.e2e4.shopmobile.modules.catalog.contract.SubcategoriesContract.SubcategoriesView
 
 class SubcategoriesFragment : Fragment(), SubcategoriesView {
+
+    private lateinit var rootView: View
+    private var isHideTitleToolbar = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +37,7 @@ class SubcategoriesFragment : Fragment(), SubcategoriesView {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        rootView = view
         val toolbar = view.vToolbar as Toolbar?
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         toolbar?.setNavigationIcon(R.drawable.ic_arrow_back)
@@ -38,8 +46,8 @@ class SubcategoriesFragment : Fragment(), SubcategoriesView {
         val category = SubcategoriesFragmentArgs.fromBundle(arguments!!).category
         view.vNameCategory.text = category.name
 
-        view.vSubcategories.layoutManager =
-            GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
+        view.vSubcategories.layoutManager = GridLayoutManager(activity, 3)
+        view.vSubcategories.addItemDecoration(GridItemDecoration())
 
         val adapter = CategoriesAdapter(
             category.children,
@@ -50,9 +58,14 @@ class SubcategoriesFragment : Fragment(), SubcategoriesView {
                 SubcategoriesFragmentDirections.actionSubcategoriesFragmentSelf(subcategory)
             findNavController().navigate(action)
         }
-        view.vSubcategories.layoutManager = GridLayoutManager(activity, 3)
-        view.vSubcategories.addItemDecoration(GridItemDecoration())
         view.vSubcategories.adapter = adapter
+
+        view.vScroll.viewTreeObserver.addOnScrollChangedListener {
+            val scrollY = view.vScroll.scrollY
+            if (scrollY > 100 && isHideTitleToolbar) {
+                animateToolbarTitleHide(category.name, vToolbar)
+            } else if (scrollY < 100 && !isHideTitleToolbar) animateToolbarTitleShow(" ", vToolbar)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -66,6 +79,43 @@ class SubcategoriesFragment : Fragment(), SubcategoriesView {
             }
         }
         return true
+    }
+
+    private fun getToolbarTitleView(toolbar: Toolbar): TextView {
+        val childCount = toolbar.childCount
+        repeat(childCount) {
+            val child = toolbar.getChildAt(it)
+            if (child is TextView) return child
+        }
+        return TextView(activity)
+    }
+
+    private fun animateToolbarTitleHide(title: String, toolbar: Toolbar) {
+        val vTitle = getToolbarTitleView(toolbar)
+        vTitle.text = title
+        val animationHide = AnimationUtils.loadAnimation(activity, R.anim.toolbar_title_hide)
+        vTitle.startAnimation(animationHide)
+        isHideTitleToolbar = false
+    }
+
+    private fun animateToolbarTitleShow(title: String, toolbar: Toolbar) {
+        val vTitle = getToolbarTitleView(toolbar)
+        val animationShow = AnimationUtils.loadAnimation(activity, R.anim.toolbar_title_show)
+        vTitle.startAnimation(animationShow)
+        animationShow.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationRepeat(animation: Animation?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                vTitle.text = " "
+            }
+
+            override fun onAnimationStart(animation: Animation?) {
+
+            }
+        })
+        isHideTitleToolbar = true
     }
 
     inner class GridItemDecoration : RecyclerView.ItemDecoration() {

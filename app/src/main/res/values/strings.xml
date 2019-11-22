@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">E2E4</string>
+    <string name="appName">E2E4</string>
     <string name="price12regular"><strike>Price 12 Regular</strike></string>
     <string name="deeplink">http://e2e4.ru/{id}</string>
     <string name="nameDB">localDB</string>
