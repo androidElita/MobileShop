@@ -6,17 +6,18 @@ import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.*
 import ru.e2e4.shopmobile.mvp.RxAbstractPresenter
 import javax.inject.Inject
 
-class CategoriesPresenterImpl @Inject constructor(
+class CategoriesPresenterImpl
+@Inject constructor(
     private val model: CategoryModel
 ) : CategoryPresenter, RxAbstractPresenter<CategoryView>() {
 
-    override fun loadCategoryTree() {
+    override fun loadCategoriesTree() {
         addDisposable(
-            model.loadCategoryTree()
+            model.loadCategoriesTree()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({
-                    getView().showCategory(it)
+                    getView().showCategories(it)
                 }, {
                     getView().showError()
                 })

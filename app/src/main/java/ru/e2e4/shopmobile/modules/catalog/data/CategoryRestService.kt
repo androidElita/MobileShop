@@ -6,12 +6,8 @@ import retrofit2.http.Query
 
 interface CategoryRestService {
 
-    @GET(PATH + "list")
+    @GET("category/list")
     fun getCategoryTree(
         @Query("zoneId") zoneId: Int
     ): Single<CategoriesNode>
-
-    companion object {
-        const val PATH = "category/"
-    }
 }

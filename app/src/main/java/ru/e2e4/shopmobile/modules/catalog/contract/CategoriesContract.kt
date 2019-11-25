@@ -7,15 +7,15 @@ import ru.e2e4.shopmobile.mvp.BaseView
 
 interface CategoriesContract {
     interface CategoryModel {
-        fun loadCategoryTree(): Single<CategoriesNode>
+        fun loadCategoriesTree(): Single<CategoriesNode>
     }
 
     interface CategoryView : BaseView {
-        fun showCategory(categories: CategoriesNode)
+        fun showCategories(categories: CategoriesNode)
         fun showError()
     }
 
     interface CategoryPresenter : BasePresenter<CategoryView> {
-        fun loadCategoryTree()
+        fun loadCategoriesTree()
     }
 }

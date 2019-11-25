@@ -1,6 +1,7 @@
 package ru.e2e4.shopmobile.modules.catalog.view
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,21 +11,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.catalog_fragment_categories.view.*
+import kotlinx.android.synthetic.main.catalog_fragment_categories.*
 import ru.e2e4.shopmobile.R
 import ru.e2e4.shopmobile.di.ComponentContract
 import ru.e2e4.shopmobile.modules.catalog.adapters.CategoriesAdapter
 import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryPresenter
 import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryView
 import ru.e2e4.shopmobile.modules.catalog.data.CategoriesNode
-import ru.e2e4.shopmobile.utils.recycler.ItemOffsetDecoration
 import javax.inject.Inject
 
 class CategoriesFragment : Fragment(), CategoryView {
 
     @Inject
     lateinit var presenter: CategoryPresenter
-    private lateinit var vCategories: RecyclerView
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -37,28 +36,26 @@ class CategoriesFragment : Fragment(), CategoryView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.catalog_fragment_categories, container, false)
-        presenter.loadCategoryTree()
-        return rootView
+        return inflater.inflate(R.layout.catalog_fragment_categories, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        vCategories = view.vCategories
         vCategories.layoutManager = LinearLayoutManager(activity)
+        presenter.loadCategoriesTree()
     }
 
-    override fun showCategory(categories: CategoriesNode) {
+    override fun showCategories(categories: CategoriesNode) {
         val adapter = CategoriesAdapter(categories.children).apply {
             onItemClickListener = { subcategory ->
                 val action =
-                    CategoriesFragmentDirections.actionCatalogFragmentToSubcategoriesFragment(
+                    CategoriesFragmentDirections.actionCategoriesFragmentToSubcategoriesFragment(
                         subcategory
                     )
                 findNavController().navigate(action)
             }
         }
         vCategories.adapter = adapter
-        vCategories.addItemDecoration(ItemOffsetDecoration(resources))
+        vCategories.addItemDecoration(ItemDecoration())
     }
 
     override fun showError() {
@@ -68,5 +65,29 @@ class CategoriesFragment : Fragment(), CategoryView {
     override fun onDestroy() {
         presenter.detachView()
         super.onDestroy()
+    }
+
+    inner class ItemDecoration : RecyclerView.ItemDecoration() {
+
+        private val offset12 = resources.getDimension(R.dimen.value12).toInt()
+        private val offset16 = resources.getDimension(R.dimen.value16).toInt()
+
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            with(outRect) {
+                if (parent.getChildAdapterPosition(view) == 0) top = offset16
+
+                val lastItemPosition = parent.adapter?.itemCount?.minus(1)
+                bottom = if (parent.getChildAdapterPosition(view) == lastItemPosition) offset16
+                else offset12
+
+                left = offset16
+                right = offset16
+            }
+        }
     }
 }
