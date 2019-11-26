@@ -38,7 +38,7 @@
     <!-- Текст -->
     <style name="Text24Regular" parent="TextRegular">
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingMultiplier">1.32</item>
+        <item name="android:lineSpacingMultiplier">1.30</item>
     </style>
 
     <style name="Text16Regular"  parent="TextRegular">
@@ -55,13 +55,13 @@
 
     <style name="Text14Medium" parent="TextMedium">
         <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingMultiplier">1.22</item>
+        <item name="android:lineSpacingMultiplier">1.16</item>
         <item name="android:letterSpacing">0.00571</item> <!-- 0.08px / 14sp -->
     </style>
 
     <style name="Text14Regular" parent="TextRegular">
         <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingMultiplier">1.22</item>
+        <item name="android:lineSpacingMultiplier">1.16</item>
         <item name="android:letterSpacing">0.00571</item> <!-- 0.08px / 14sp -->
     </style>
 

@@ -14,7 +14,8 @@
             android:id="@+id/action_categoriesFragment_to_subcategoriesFragment"
             app:destination="@+id/subcategoriesFragment"
             app:enterAnim="@anim/fragment_open_enter"
-            app:popEnterAnim="@anim/fragment_close_enter" />
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/subcategoriesFragment"
@@ -28,10 +29,14 @@
             android:id="@+id/action_subcategoriesFragment_self"
             app:destination="@id/subcategoriesFragment"
             app:enterAnim="@anim/fragment_open_enter"
-            app:popEnterAnim="@anim/fragment_close_enter" />
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_subcategoriesFragment_to_goodsListFragment"
-            app:destination="@id/goodsListFragment" />
+            app:destination="@id/goodsListFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/goodsListFragment"
