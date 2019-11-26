@@ -4,9 +4,6 @@ import android.animation.ObjectAnimator
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
-import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-import android.view.animation.AnimationSet
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.NestedScrollView
@@ -82,22 +79,7 @@ class SubcategoriesFragment : Fragment() {
 
     private fun hideToolbarTitle() {
         isTitleToolbarShown = false
-
-        val vToolbarTitle = getToolbarTitleView()
-
-        val alphaAnimation = AlphaAnimation(1f, 0f)
-        alphaAnimation.duration = 200
-        val animationSet = AnimationSet(false)
-        animationSet.addAnimation(alphaAnimation)
-        animationSet.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationRepeat(animation: Animation?) {}
-            override fun onAnimationEnd(animation: Animation?) {
-                vToolbarTitle.text = ""
-            }
-
-            override fun onAnimationStart(animation: Animation?) {}
-        })
-        vToolbarTitle.startAnimation(animationSet)
+        getToolbarTitleView().text = ""
     }
 
     private fun getToolbarTitleView(): TextView {
