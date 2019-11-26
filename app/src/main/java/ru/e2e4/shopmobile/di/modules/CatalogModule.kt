@@ -1,8 +1,8 @@
-package ru.e2e4.shopmobile.di.modules.catalog
+package ru.e2e4.shopmobile.di.modules
 
 import dagger.Module
 import dagger.Provides
-import ru.e2e4.shopmobile.di.scopes.CategoriesScope
+import ru.e2e4.shopmobile.di.scopes.CatalogScope
 import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryModel
 import ru.e2e4.shopmobile.modules.catalog.contract.CategoriesContract.CategoryPresenter
 import ru.e2e4.shopmobile.modules.catalog.data.CategoryRestService
@@ -11,22 +11,22 @@ import ru.e2e4.shopmobile.modules.catalog.presenter.CategoriesPresenterImpl
 import ru.e2e4.shopmobile.retrofit.NetworkService
 
 @Module
-class CategoriesModule {
+class CatalogModule {
 
     @Provides
-    @CategoriesScope
+    @CatalogScope
     fun provideCategoryRestService(service: NetworkService): CategoryRestService {
         return service.create(CategoryRestService::class.java)
     }
 
     @Provides
-    @CategoriesScope
+    @CatalogScope
     fun provideCategoryPresenter(presenter: CategoriesPresenterImpl): CategoryPresenter {
         return presenter
     }
 
     @Provides
-    @CategoriesScope
+    @CatalogScope
     fun provideCategoryModel(model: CategoriesModelImpl): CategoryModel {
         return model
     }

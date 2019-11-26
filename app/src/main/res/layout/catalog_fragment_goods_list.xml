@@ -13,6 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Карточка товара" />
+        android:text="Список товаров" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

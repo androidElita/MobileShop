@@ -4,6 +4,9 @@ import android.animation.ObjectAnimator
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.NestedScrollView
@@ -18,7 +21,7 @@ import ru.e2e4.shopmobile.modules.catalog.adapters.CategoriesAdapter
 
 class SubcategoriesFragment : Fragment() {
 
-    private var isHideTitleToolbar = true
+    private var isTitleToolbarShown = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +37,12 @@ class SubcategoriesFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val category = SubcategoriesFragmentArgs.fromBundle(arguments!!).category
+
         (activity as AppCompatActivity).setSupportActionBar(vToolbar)
         vToolbar.setNavigationIcon(R.drawable.ic_arrow_back)
         vToolbar.setNavigationOnClickListener { onBackPressed() }
-
-        val category = SubcategoriesFragmentArgs.fromBundle(arguments!!).category
+        if (isTitleToolbarShown) vToolbar.title = category.name
 
         vNameCategory.text = category.name
 
@@ -56,29 +60,44 @@ class SubcategoriesFragment : Fragment() {
         vSubcategories.addItemDecoration(ItemDecoration())
         vSubcategories.adapter = adapter
 
-        vScroll.setOnScrollChangeListener(
+        vNestedScroll.setOnScrollChangeListener(
             NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-                if (scrollY >= vNameCategory.height && isHideTitleToolbar)
-                    showToolbarTitle(category.name)
-                else if (scrollY < vNameCategory.height && !isHideTitleToolbar) hideToolbarTitle()
+                when {
+                    scrollY > vNameCategory.height && !isTitleToolbarShown ->
+                        showToolbarTitle(category.name)
+                    scrollY < vNameCategory.height && isTitleToolbarShown ->
+                        hideToolbarTitle()
+                }
             }
         )
-
     }
 
     private fun showToolbarTitle(title: String) {
+        isTitleToolbarShown = true
         val vToolbarTitle = getToolbarTitleView().apply { text = title }
         ObjectAnimator.ofFloat(vToolbarTitle, View.ALPHA, 0f, 1f)
             .setDuration(300)
             .start()
-        isHideTitleToolbar = false
     }
 
     private fun hideToolbarTitle() {
-        ObjectAnimator.ofFloat(getToolbarTitleView(), View.ALPHA, 1f, 0f)
-            .setDuration(100)
-            .start()
-        isHideTitleToolbar = true
+        isTitleToolbarShown = false
+
+        val vToolbarTitle = getToolbarTitleView()
+
+        val alphaAnimation = AlphaAnimation(1f, 0f)
+        alphaAnimation.duration = 200
+        val animationSet = AnimationSet(false)
+        animationSet.addAnimation(alphaAnimation)
+        animationSet.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationRepeat(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+                vToolbarTitle.text = ""
+            }
+
+            override fun onAnimationStart(animation: Animation?) {}
+        })
+        vToolbarTitle.startAnimation(animationSet)
     }
 
     private fun getToolbarTitleView(): TextView {

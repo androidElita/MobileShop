@@ -27,7 +27,7 @@ class CategoriesFragment : Fragment(), CategoryView {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (context.applicationContext as ComponentContract).getCategoriesComponent().inject(this)
+        (context.applicationContext as ComponentContract).getCatalogComponent().inject(this)
         presenter.attachView(this)
     }
 
